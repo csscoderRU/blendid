@@ -31,8 +31,9 @@ var watchTask = function() {
 
     if(taskConfig) {
       var srcPath = projectPath(PATH_CONFIG.src, taskPath.src)
+      var srcPathBlocks = projectPath(PATH_CONFIG.src, 'blocks')
       var globPattern = '**/*' + (taskConfig.extensions ? '.{' + taskConfig.extensions.join(',') + '}' : '')
-      watch(path.join(srcPath, globPattern), watchConfig, function() {
+      watch([path.join(srcPath, globPattern), path.join(srcPathBlocks, globPattern)], watchConfig, function() {
        require('./' + taskName)()
       })
     }

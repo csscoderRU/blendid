@@ -16,7 +16,11 @@ const htmlTask = function() {
   const exclude = '!' + projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src, '**/{' + TASK_CONFIG.html.excludeFolders.join(',') + '}/**')
 
   const paths = {
-    src: [projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src, '**/*.{' + TASK_CONFIG.html.extensions + '}'), exclude],
+    src: [
+      projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src, '**/*.{' + TASK_CONFIG.html.extensions + '}'),
+      projectPath(PATH_CONFIG.src, 'blocks', '**/*.{' + TASK_CONFIG.html.extensions + '}'),
+      exclude
+    ],
     dest: projectPath(PATH_CONFIG.dest, PATH_CONFIG.html.dest),
   }
 
@@ -25,7 +29,7 @@ const htmlTask = function() {
     return JSON.parse(fs.readFileSync(dataPath, 'utf8'))
   }
 
-  const nunjucksRenderPath = [ projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src) ]
+  const nunjucksRenderPath = [ projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src), projectPath(PATH_CONFIG.src, 'blocks') ]
   TASK_CONFIG.html.nunjucksRender.path = TASK_CONFIG.html.nunjucksRender.path || nunjucksRenderPath
 
   return gulp.src(paths.src)
