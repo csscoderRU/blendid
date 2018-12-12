@@ -9,6 +9,7 @@ const projectPath    = require('../lib/projectPath')
 const htmlmin        = require('gulp-htmlmin')
 const nunjucksRender = require('gulp-nunjucks-render')
 const fs             = require('fs')
+var rename           = require('gulp-rename')
 
 const htmlTask = function() {
 
@@ -33,6 +34,9 @@ const htmlTask = function() {
     .pipe(nunjucksRender(TASK_CONFIG.html.nunjucksRender))
     .on('error', handleErrors)
     .pipe(gulpif(global.production, htmlmin(TASK_CONFIG.html.htmlmin)))
+    .pipe(rename(function (path) {
+      path.basename = path.basename.replace('.nunj', '');
+    }))
     .pipe(gulp.dest(paths.dest))
     .pipe(browserSync.stream())
 }
