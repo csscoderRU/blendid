@@ -15,6 +15,12 @@ module.exports = {
     }
   },
 
+  stylesheet: {
+    autoprefixer: {
+      browsers: ['> 2%', 'IE 10', 'iOS >= 7']
+    }
+  },
+
   browserSync: {
     server: {
       // should match `dest` in
