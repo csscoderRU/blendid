@@ -1,0 +1,54 @@
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// svg sprite icons
+.ico-svg {
+  display: inline-block;
+  line-height: 100%;
+  vertical-align: top;
+
+  use {
+    @extend %tr-all;
+  }
+}
+
+// hide
+.hide {
+  @extend %hide;
+}
+
+.hidden {
+  @extend %hidden;
+}
+
+@import "vue-helpers";

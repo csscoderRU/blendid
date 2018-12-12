@@ -1,20 +1,45 @@
-@import "base/typography";
+/*!
+   ####    #####    #####     ####     ###    #####    #######  ######
+  ##  ##  ##   ##  ##   ##   ##  ##   ## ##   ##  ##   ##       ##   ##
+ ##       ##       ##       ##       ##   ##  ##   ##  ##       ##   ##
+ ##        #####    #####   ##       ##   ##  ##   ##  #####    ######
+ ##            ##       ##  ##       ##   ##  ##   ##  ##       ## ##
+  ##  ##  ##   ##  ##   ##   ##  ##   ## ##   ##  ##   ##       ##  ##
+   ####    #####    #####     ####     ###    #####    #######  ##   ##
+https://csscoder.pro/
+*/
 
-.test1 {
-  @media (min-width: 1768px) {
-    font-size: 10px;
-  }
+@import "common/variable";
+@import "common/mixins/mixin";
+@import "common/silent-grid/silent-grid";
+@import "common/typograph";
+@import "common/common";
+@import "common/ui/ui";
+
+@lost flexbox flex;
+
+//***************************************
+/* Base  */
+///***********************************************/
+.l-html,
+.l-body {
+  height: 100%;
 }
 
-.test2 {
-  @media (min-width: 768px) {
-    font-size: 20px;
-    line-height: 10px;
-  }
+.l-body {
+  background-color: $colorWhite;
+  font-family: $fontBody;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.test3 {
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
+.l-page {
+  overflow: hidden;
+  min-height: 100%;
 }
+
+///* include modules */
+///***********************************************/
+//@import "../components/content-inner/content-inner";
+

@@ -1,6 +1,6 @@
 {% from 'macros/helpers.nunj.html' import sprite %}
 <!doctype html>
-<html>
+<html class="l-html">
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ title }}{% endblock %}</title>
@@ -9,7 +9,7 @@
     {% include "shared/app-icons.nunj.html" %}
     {% block head %}{% endblock %}
   </head>
-  <body>
+  <body class="l-body">
     {% block content %}{% endblock %}
     {% block javascript %}
       <script src="javascripts/app.js"></script>

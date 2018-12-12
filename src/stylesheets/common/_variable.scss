@@ -1,0 +1,49 @@
+// Grid silent bootstrap
+///***********************************************/
+
+$gridColumns: 12;
+$gridGutterWidth: 30px;
+
+// media steps
+$mediaSteps: (
+  default: 'default',
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+// container max width
+$containerMaxWidths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1080px,
+  xxl: 1190px
+) !default;
+
+// fonts
+$fontBody: 'Roboto', Helvetica, Arial, sans-serif;
+$fontTitle: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+
+// typography works in .g-typography
+$lineHeightRatio: 1.618;
+$headingRatio: 1.618;
+$headingFont: $fontTitle;
+$headingFontWeight: 700;
+$minFont: 14px;
+$maxFont: 16px;
+$minWidth: 576px;
+$maxWidth: 1200px;
+$verticalRhythm: true;
+
+///* colors */
+///***********************************************/
+$colorWhite: #fff;
+$colorMain: #02d0c6;
+$colorBlack: #141414;
+$colorDark: #4e4444;
+$colorGray: #8b8b8b;
+$colorLightGray: #b2b2b2;
+$colorError: #e24147;

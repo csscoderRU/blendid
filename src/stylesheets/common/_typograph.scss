@@ -1,0 +1,20 @@
+.g-typography {
+  @include typographic;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+//
+//@font-face {
+//  font-family: 'Bebas Neue';
+//  src: url('../fonts/BebasNeueBold.woff2') format('woff2'),
+//  url('../fonts/BebasNeueBold.woff') format('woff');
+//  font-weight: 700;
+//  font-style: normal;
+//}
