@@ -12,6 +12,9 @@ module.exports = {
       // files paths are relative to
       // javascripts.dest in path-config.json
       app: ["./app.js"]
+    },
+    alias:{
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
 

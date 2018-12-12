@@ -18,7 +18,6 @@ const htmlTask = function() {
   const paths = {
     src: [
       projectPath(PATH_CONFIG.src, PATH_CONFIG.html.src, '**/*.{' + TASK_CONFIG.html.extensions + '}'),
-      projectPath(PATH_CONFIG.src, 'blocks', '**/*.{' + TASK_CONFIG.html.extensions + '}'),
       exclude
     ],
     dest: projectPath(PATH_CONFIG.dest, PATH_CONFIG.html.dest),
