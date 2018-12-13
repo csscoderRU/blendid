@@ -10,7 +10,9 @@
     {% block head %}{% endblock %}
   </head>
   <body class="l-body">
-    {% block content %}{% endblock %}
+    <div class="l-page" id="app">
+      {% block content %}{% endblock %}
+    </div>
     {% block javascript %}
       <script src="javascripts/app.js"></script>
     {% endblock %}

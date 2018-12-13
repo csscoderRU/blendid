@@ -1,3 +1,5 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
 module.exports = {
   html        : true,
   images      : true,
@@ -13,8 +15,30 @@ module.exports = {
       // javascripts.dest in path-config.json
       app: ["./app.js"]
     },
-    alias:{
+    alias: {
       'vue$': 'vue/dist/vue.esm.js'
+    },
+    loaders: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            js: 'babel-loader'
+          }
+        }
+      }
+    ],
+    plugins: (webpack) => { return [new VueLoaderPlugin() ] },
+
+    production: {
+      uglifyJsPlugin: {
+        extractComments: true,
+        compress: {
+          drop_console: true,
+          warnings: false
+        }
+      },
     }
   },
 
