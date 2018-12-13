@@ -3,6 +3,16 @@ const path        = require('path')
 const projectPath = require('./projectPath')
 const pkg         = require(projectPath('package.json'))
 
+const moment = require('moment-timezone');
+const timeUpdate = moment().tz(pkg.clientTimeZone).format('DD MMM YYYY, HH:mm');
+
+let manageEnvironment = function(environment) {
+  environment.addGlobal('globalTimeBuild', timeUpdate);
+  environment.addGlobal('globalTimeZone', pkg.clientTimeZone);
+  environment.addGlobal('globalTitle', pkg.title);
+  environment.addGlobal('globalStartDate', pkg.startDate);
+};
+
 module.exports = {
   javascripts: {
     extensions: ['js', 'jsx'],
@@ -46,6 +56,7 @@ module.exports = {
   html: {
     dataFile: "data/global.json",
     nunjucksRender: {
+      manageEnv: manageEnvironment,
       envOptions: {
         watch: false
       }

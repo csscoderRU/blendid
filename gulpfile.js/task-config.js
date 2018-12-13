@@ -53,7 +53,9 @@ module.exports = {
       // should match `dest` in
       // path-config.json
       baseDir: 'public'
-    }
+    },
+    // xip: true,
+    // online: true
   },
 
   production: {
