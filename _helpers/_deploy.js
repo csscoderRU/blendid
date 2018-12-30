@@ -14,6 +14,7 @@ const rsync = new Rsync()
   .set('progress')
   .shell(`ssh -p ${port}`)
   .exclude(['.DS_Store'])
+  .set('delete')
   .flags('az')
   .source(localPath)
   .destination(`${username}@${hostname}:${hostDestination}/`);
@@ -23,7 +24,7 @@ rsync.execute(function (error, code) {
     console.log(error);
   }
   if (code === 0) {
-    console.log(`Deployed 'build/' to ${username}@${hostname}:${hostDestination}/`);
-    console.log(`http://dev.csscoder.pro/${directory}/csscoder.html`);
+    console.log(`Deployed 'public/' to ${hostDestination}/`);
+    console.log(`http://dev.csscoder.pro/${startDate}_${directory}/csscoder.html`);
   }
 });
