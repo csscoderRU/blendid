@@ -9,7 +9,16 @@ const projectPath    = require('../lib/projectPath')
 const htmlmin        = require('gulp-htmlmin')
 const nunjucksRender = require('gulp-nunjucks-render')
 const fs             = require('fs')
-var rename           = require('gulp-rename')
+var rename           = require('gulp-rename');
+var htmlbeautify = require('gulp-html-beautify');
+
+var htmlBeautyOptions = {
+  indent_with_tabs: true,
+  preserve_newlines: false,
+  space_in_empty_paren: true,
+  end_with_newline: true,
+  unformatted: []
+};
 
 const htmlTask = function() {
 
@@ -36,10 +45,12 @@ const htmlTask = function() {
     .on('error', handleErrors)
     .pipe(nunjucksRender(TASK_CONFIG.html.nunjucksRender))
     .on('error', handleErrors)
-    .pipe(gulpif(global.production, htmlmin(TASK_CONFIG.html.htmlmin)))
+    .pipe(gulpif(global.production && !TASK_CONFIG.html.beautify, htmlmin(TASK_CONFIG.html.htmlmin)))
+    .pipe(gulpif(global.production && TASK_CONFIG.html.beautify, htmlbeautify(htmlBeautyOptions)))
     .pipe(rename(function (path) {
       path.basename = path.basename.replace('.nunj', '');
     }))
+    // .pipe(gulpif(TASK_CONFIG.html.beautify, htmlbeautify(htmlBeautyOptions)))
     .pipe(gulp.dest(paths.dest))
     .pipe(browserSync.stream())
 }

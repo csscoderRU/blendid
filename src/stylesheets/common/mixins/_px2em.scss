@@ -46,7 +46,7 @@ $g: 8px !default;
 @function em($value, $base: $baseFontSize) {
   $emValues: ();
   @each $item in $value {
-    $emValues: append($emValues, _convert-to-em($item, $base))
+    $emValues: append($emValues, _convert-to-em($item, $base));
   }
   @return $emValues;
 }
@@ -54,7 +54,7 @@ $g: 8px !default;
 @function emg($value, $base: $baseFontSize) {
   $emValues: ();
   @each $item in $value {
-    $emValues: append($emValues, _convert-to-emg($item, $base))
+    $emValues: append($emValues, _convert-to-emg($item, $base));
   }
   @return $emValues;
 }

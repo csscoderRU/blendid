@@ -1,0 +1,15 @@
+/* Blank */
+/***********************************************/
+.text {
+  line-height: 10px;
+}
+
+.rest {
+
+
+  @include res(lg) {
+    font-size: 20px;
+  }
+
+  font-size: 10px;
+}

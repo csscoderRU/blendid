@@ -1,13 +1,15 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  html        : true,
   images      : true,
   fonts       : true,
   static      : true,
   svgSprite   : true,
   ghPages     : true,
-  stylesheets : true,
+
+  html: {
+    beautify: true,
+  },
 
   javascripts: {
     entry: {
@@ -42,7 +44,9 @@ module.exports = {
     }
   },
 
-  stylesheet: {
+  stylesheets: {
+    minify: false,
+    mqpacker: false,
     autoprefixer: {
       browsers: ['> 2%', 'IE 10', 'iOS >= 7']
     }

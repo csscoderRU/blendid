@@ -1,7 +1,7 @@
 ///* SILENT BOOTSTRAP GRID */
 ///***********************************************/
-$gridColumns: 12 !default;
-$gridGutterWidth: 30px !default;
+$grid_columns: 12 !default;
+$grid_gutter_width: 30px !default;
 
 %flex {
   display: flex;
@@ -12,7 +12,7 @@ $gridGutterWidth: 30px !default;
 }
 
 // media steps
-$mediaSteps: (
+$media_steps: (
   default: 'default',
   sm: 576px,
   md: 768px,
@@ -23,7 +23,7 @@ $mediaSteps: (
 ) !default;
 
 // container max width
-$containerMaxWidths: (
+$container_max_widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
@@ -47,7 +47,7 @@ $containerMaxWidths: (
 // }
 
 @mixin res($media) {
-  @each $breakpoint, $valueMedia in $mediaSteps {
+  @each $breakpoint, $valueMedia in $media_steps {
     @if $media == $breakpoint {
       @media (min-width: $valueMedia) {
         @content;
@@ -57,7 +57,7 @@ $containerMaxWidths: (
 }
 
 @mixin res-less($media) {
-  @each $breakpoint, $valueMedia in $mediaSteps {
+  @each $breakpoint, $valueMedia in $media_steps {
     @if $media == $breakpoint {
       $lessStep: $valueMedia - 1;
       @media (max-width: $lessStep) {
@@ -73,17 +73,17 @@ $containerMaxWidths: (
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: ($gridGutterWidth / 2);
-  padding-left: ($gridGutterWidth / 2);
+  padding-right: ($grid_gutter_width / 2);
+  padding-left: ($grid_gutter_width / 2);
 }
 
 %container {
   @extend %_container-common;
 
-  //$lengthMediaStepsContainer: length($containerMaxWidths);
+  //$lengthMediaStepsContainer: length($container_max_widths);
 
-  @each $breakpoint, $valueMedia in $mediaSteps {
-    @each $breakpointWidth, $valueWidth in $containerMaxWidths {
+  @each $breakpoint, $valueMedia in $media_steps {
+    @each $breakpointWidth, $valueWidth in $container_max_widths {
       @if $breakpoint == $breakpointWidth {
         @media (min-width: $valueMedia) {
           max-width: $valueWidth;
@@ -104,8 +104,8 @@ $containerMaxWidths: (
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: ($gridGutterWidth / 2);
-  padding-left: ($gridGutterWidth / 2);
+  padding-right: ($grid_gutter_width / 2);
+  padding-left: ($grid_gutter_width / 2);
 }
 
 %col {
@@ -120,7 +120,7 @@ $containerMaxWidths: (
   max-width: none;
 }
 
-@each $breakpoint, $value in $mediaSteps {
+@each $breakpoint, $value in $media_steps {
 
   @if ($breakpoint != 'default') {
     %col-#{$breakpoint} {
@@ -147,7 +147,7 @@ $containerMaxWidths: (
 
     %order-#{$breakpoint}-last {
       @media (min-width: $value) {
-        order: $gridColumns + 1;
+        order: $grid_columns + 1;
       }
     }
 
@@ -184,20 +184,20 @@ $containerMaxWidths: (
     }
 
     %order-last {
-      order: $gridColumns + 1;
+      order: $grid_columns + 1;
     }
   }
 
-  @for $i from 1 through $gridColumns {
+  @for $i from 1 through $grid_columns {
     @if ($breakpoint == 'default') {
       %col-#{$i} {
         @extend %grid-column;
-        flex: 0 0 percentage($i / $gridColumns);
-        max-width: percentage($i / $gridColumns);
+        flex: 0 0 percentage($i / $grid_columns);
+        max-width: percentage($i / $grid_columns);
       }
 
       %offset-#{$i} {
-        $num: $i / $gridColumns;
+        $num: $i / $grid_columns;
         margin-left: if($num == 0, 0, percentage($num));
       }
 
@@ -213,15 +213,15 @@ $containerMaxWidths: (
 
       %col-#{$breakpoint}-#{$i} {
         @media (min-width: $value) {
-          flex: 0 0 percentage($i / $gridColumns);
-          max-width: percentage($i / $gridColumns);
+          flex: 0 0 percentage($i / $grid_columns);
+          max-width: percentage($i / $grid_columns);
         }
         @extend %grid-column;
       }
 
       %offset-#{$breakpoint}-#{$i} {
         @media (min-width: $value) {
-          $num: $i / $gridColumns;
+          $num: $i / $grid_columns;
           margin-left: if($num == 0, 0, percentage($num));
         }
       }
@@ -263,7 +263,7 @@ $flexProps: (
   'align-self' 'stretch' 'align-self' 'stretch'
 );
 
-@each $breakpoint, $valueMedia in $mediaSteps {
+@each $breakpoint, $valueMedia in $media_steps {
   @if ($breakpoint == 'default') {
     @each $props in $flexProps {
       $key1: nth($props, 1);
@@ -295,8 +295,8 @@ $flexProps: (
 ///***********************************************/
 %row {
   @extend %flex, %flex-wrap;
-  margin-right: ($gridGutterWidth / -2);
-  margin-left: ($gridGutterWidth / -2);
+  margin-right: ($grid_gutter_width / -2);
+  margin-left: ($grid_gutter_width / -2);
 }
 
 // when we use in row contain

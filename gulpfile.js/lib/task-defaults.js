@@ -50,7 +50,12 @@ module.exports = {
         "./node_modules"
       ]
     },
-    extensions: ["sass", "scss", "css"]
+    extensions: ["sass", "scss", "css"],
+    mqpacker: true,
+    minify: true,
+    autoprefixer: {
+      browsers: ['> 2%', 'IE 10', 'iOS >= 7']
+    }
   },
 
   html: {
@@ -64,6 +69,7 @@ module.exports = {
     htmlmin: {
       collapseWhitespace: true
     },
+    beautify: false,
     excludeFolders: ["layouts", "shared", "macros", "data"],
     extensions: ["html", "njk", "json"]
   },

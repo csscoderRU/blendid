@@ -1,11 +1,11 @@
 // Grid silent bootstrap
 ///***********************************************/
 
-$gridColumns: 12;
-$gridGutterWidth: 30px;
+$grid_columns: 12;
+$grid_gutter_width: 30px;
 
 // media steps
-$mediaSteps: (
+$media_steps: (
   default: 'default',
   sm: 576px,
   md: 768px,
@@ -15,7 +15,7 @@ $mediaSteps: (
 ) !default;
 
 // container max width
-$containerMaxWidths: (
+$container_max_widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
@@ -24,26 +24,26 @@ $containerMaxWidths: (
 ) !default;
 
 // fonts
-$fontBody: 'Roboto', Helvetica, Arial, sans-serif;
-$fontTitle: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+$font_body: 'Roboto', Helvetica, Arial, sans-serif;
+$font_title: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 
 // typography works in .g-typography
-$lineHeightRatio: 1.618;
-$headingRatio: 1.618;
-$headingFont: $fontTitle;
-$headingFontWeight: 700;
-$minFont: 14px;
-$maxFont: 16px;
-$minWidth: 576px;
-$maxWidth: 1200px;
-$verticalRhythm: true;
+$line_height_ratio: 1.618;
+$heading_ratio: 1.618;
+$heading_font: $font_title;
+$heading_font_weight: 700;
+$min_font: 14px;
+$max_font: 16px;
+$min_width: 576px;
+$max_width: 1200px;
+$vertical_rhythm: true;
 
 ///* colors */
 ///***********************************************/
-$colorWhite: #fff;
-$colorMain: #02d0c6;
-$colorBlack: #141414;
-$colorDark: #4e4444;
-$colorGray: #8b8b8b;
-$colorLightGray: #b2b2b2;
-$colorError: #e24147;
+$color_white: #fff;
+$color_main: #02d0c6;
+$color_black: #141414;
+$color_dark: #4e4444;
+$color_gray: #8b8b8b;
+$color_light_gray: #b2b2b2;
+$color_error: #e24147;

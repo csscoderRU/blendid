@@ -3,7 +3,8 @@
 //
 //<a class="ui-btn ui-btn--size-normal ui-btn--theme-primary ui-btn--skin-normal" href="#3" tabindex="0"><span class="ui-btn__box" tabindex="-1">Button</span></a>
 
-// reset style button
+/* buttons */
+/***********************************************/
 .ui-btn {
   $self: &;
   display: inline-block;
@@ -25,7 +26,7 @@
   line-height: 1;
   -webkit-touch-callout: none;
   appearance: none;
-  -webkit-tap-highlight-color: rgba($colorBlack, 0);
+  -webkit-tap-highlight-color: rgba($color_black, 0);
 
   &:focus {
     z-index: 100;
@@ -33,7 +34,7 @@
   }
 
   &__box {
-    @extend %tr-all;
+    @include trAll;
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -87,16 +88,16 @@
 
     // THEME MOD 1
     #{$self}--theme-primary & {
-      color: $colorWhite;
-      border-color: $colorBlack;
-      background-color: $colorBlack;
+      color: $color_white;
+      border-color: $color_black;
+      background-color: $color_black;
 
       &:hover {
-        background-color: lighten($colorBlack, 40%);
+        background-color: lighten($color_black, 40%);
       }
 
       &:active {
-        background-color: lighten($colorBlack, 20%);
+        background-color: lighten($color_black, 20%);
       }
 
     }
@@ -107,12 +108,12 @@
 
     // THEME MOD 1 + STATES
     #{$self}--theme-primary#{$self}--state-loading & {
-      background-color: lighten($colorBlack, 40%);
+      background-color: lighten($color_black, 40%);
     }
 
     #{$self}--theme-primary#{$self}--state-disabled & {
       opacity: .2;
-      background-color: $colorBlack;
+      background-color: $color_black;
     }
 
     #{$self}--theme-primary#{$self}--state-disabled:focus &,

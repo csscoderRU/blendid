@@ -8,8 +8,16 @@ $transitionFunction: ease-in-out;
   transition: all $transitionTime $transitionFunction;
 }
 
+@mixin trAll {
+  transition: all $transitionTime $transitionFunction;
+}
+
 // Border color
 %tr-border-color {
+  transition: border-color $transitionTime $transitionFunction;
+}
+
+@mixin trBorderColor {
   transition: border-color $transitionTime $transitionFunction;
 }
 
@@ -17,9 +25,15 @@ $transitionFunction: ease-in-out;
 %tr-opacity {
   transition: opacity $transitionTime $transitionFunction;
 }
+@mixin trOpacity {
+  transition: opacity $transitionTime $transitionFunction;
+}
 
 // BackgroundColor
 %tr-bgcolor {
+  transition: background-color $transitionTime $transitionFunction;
+}
+@mixin trBgColor {
   transition: background-color $transitionTime $transitionFunction;
 }
 
@@ -27,14 +41,23 @@ $transitionFunction: ease-in-out;
 %tr-color {
   transition: color $transitionTime $transitionFunction;
 }
+@mixin trColor {
+  transition: color $transitionTime $transitionFunction;
+}
 
 // boxshadow
 %tr-shadow {
   transition: box-shadow $transitionTime $transitionFunction;
 }
+@mixin trShadow {
+  transition: box-shadow $transitionTime $transitionFunction;
+}
 
 // width
 %tr-width {
+  transition: width $transitionTime $transitionFunction;
+}
+@mixin trWidth {
   transition: width $transitionTime $transitionFunction;
 }
 

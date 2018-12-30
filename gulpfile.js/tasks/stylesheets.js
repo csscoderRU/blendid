@@ -13,6 +13,7 @@ var autoprefixer = require('autoprefixer')
 var mqpacker     = require('css-mqpacker')
 var lost         = require('lost')
 var cssnano      = require('cssnano')
+var beautify = require('gulp-jsbeautifier');
 
 var sassTask = function () {
 
@@ -32,15 +33,28 @@ var sassTask = function () {
 
   let postCSSConf = [lost, autoprefixer(TASK_CONFIG.stylesheets.autoprefixer)];
 
-  let postCSSCompressConf = postCSSConf.concat(mqpacker({sort: true}), cssnano({preset: 'default'}));
+
+  // check media queries sort+pack
+  if(TASK_CONFIG.stylesheets.mqpacker) {
+    postCSSConf = postCSSConf.concat(mqpacker({sort: true}));
+  }
+
+  // check minify enabled
+  if(TASK_CONFIG.stylesheets.minify) {
+    postCSSCompressConf = postCSSCompressConf.concat(cssnano({preset: 'default'}));
+  }
+
+  var cssBeautifyOptions = {
+    indent_char: '\t',
+    indent_size: 1
+  };
 
   return gulp.src(paths.src)
     .pipe(gulpif(!global.production, sourcemaps.init()))
     .pipe(sass(TASK_CONFIG.stylesheets.sass))
     .on('error', handleErrors)
-    .pipe(gulpif(global.production, postcssGulp(postCSSCompressConf), postcssGulp(postCSSConf)))
-    // .pipe(autoprefixer(TASK_CONFIG.stylesheets.autoprefixer))
-    // .pipe(gulpif(global.production, cssnano(cssnanoConfig)))
+    .pipe(gulpif(global.production, postcssGulp(postCSSConf)))
+    .pipe(gulpif(global.production && !TASK_CONFIG.stylesheets.minify, beautify(cssBeautifyOptions) ))
     .pipe(gulpif(!global.production, sourcemaps.write()))
     .pipe(gulp.dest(paths.dest))
     .pipe(browserSync.stream())

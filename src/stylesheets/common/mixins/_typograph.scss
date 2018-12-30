@@ -1,23 +1,23 @@
 // Typographic v2.9.2 - https://github.com/corysimmons/typographic
 // Ratios
 
-$minor-second: 1.067;
-$major-second: 1.125;
-$minor-third: 1.2;
-$major-third: 1.25;
-$perfect-fourth: 1.333;
-$aug-fourth: 1.414;
-$perfect-fifth: 1.5;
-$minor-sixth: 1.6;
+$minor_second: 1.067;
+$major_second: 1.125;
+$minor_third: 1.2;
+$major_third: 1.25;
+$perfect_fourth: 1.333;
+$aug_fourth: 1.414;
+$perfect_fifth: 1.5;
+$minor_sixth: 1.6;
 $golden: 1.618;
-$major-sixth: 1.667;
-$minor-seventh: 1.778;
-$major-seventh: 1.875;
+$major_sixth: 1.667;
+$minor_seventh: 1.778;
+$major_seventh: 1.875;
 $octave: 2;
-$major-tenth: 2.5;
-$major-eleventh: 2.667;
-$major-twelfth: 3;
-$double-octave: 4;
+$major_tenth: 2.5;
+$major_eleventh: 2.667;
+$major_twelfth: 3;
+$double_octave: 4;
 
 // Sans-serif
 $courier: 'Courier New', 'Courier', 'Lucida Sans Typewriter', 'Lucida Typewriter', 'monospace';
@@ -51,19 +51,19 @@ $helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
 //$palatino: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', "Book Antiqua", 'Georgia', 'serif';
 
 // Settings
-$line-height-ratio   : 1.75 !default;
-$heading-ratio       : $golden !default;
-//$body-font           : $helvetica !default;
-//$body-font-weight    : 300 !default;
-//$body-color          : #666 !default;
-$heading-font        : $helvetica !default;
-$heading-font-weight : 500 !default;
-$heading-color       : #111 !default;
-$min-font            : 12px !default;
-$max-font            : 20px !default;
-$min-width           : 600px !default;
-$max-width           : 1140px !default;
-$vertical-rhythm     : true !default;
+$line_height_ratio: 1.75 !default;
+$heading_ratio: $golden !default;
+//$body_font: $helvetica !default;
+//$body_font_weight: 300 !default;
+//$body_color: #666 !default;
+$heading_font: $helvetica !default;
+$heading_font_weight: 500 !default;
+$heading_color: #111 !default;
+$min_font: 12px !default;
+$max_font: 20px !default;
+$min_width: 600px !default;
+$max_width: 1140px !default;
+$vertical_rhythm: true !default;
 
 // Helpers
 
@@ -80,20 +80,20 @@ $vertical-rhythm     : true !default;
   @return $unit / ($unit * 0 + 1);
 }
 
-/// Creates a baseline grid based off your $line-height-ratio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
+/// Creates a baseline grid based off your $line_height_ratio to help visualize your vertical rhythm grid. You can offset the grid by negative or positive pixels to line it up perfectly with the bottom of your text.
 ///
 /// @param {color} $color [black] - A color to be lightened and used as the color for the grid.
-/// @param {number} $px-offset [false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
+/// @param {number} $px_offset [false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text.
 ///
 /// @example
 ///   @include grid-overlay(blue, 2);
 
-//@mixin grid-overlay($color: black, $px-offset: false) {
+//@mixin grid-overlay($color: black, $px_offset: false) {
 //  body {
 //    background: linear-gradient(to top, rgba($color, .1) 5%, white 5%);
-//    background-size: 100% ($line-height-ratio) + em;
-//    @if ($px-offset) {
-//      background-position: 0 $px-offset + px;
+//    background-size: 100% ($line_height_ratio) + em;
+//    @if ($px_offset) {
+//      background-position: 0 $px_offset + px;
 //    }
 //  }
 //}
@@ -101,7 +101,7 @@ $vertical-rhythm     : true !default;
 /// Returns a "vertical unit". Useful for specifying the height and margins of non-text elements like images and such.
 ///
 /// @param {number} $units [1] - Number of units. Accepts floated numbers as well.
-/// @param {number} $px-offset [false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
+/// @param {number} $px_offset [false] - A positive or negative number of pixels to offset the grid by. Useful for lining the bottom of the gridlines up with your text. Since this doesn't compute a literal pixel you may need to use a floated number (multiples of .25 work well) to keep your rhythm on track.
 ///
 /// @example
 ///   img {
@@ -109,11 +109,11 @@ $vertical-rhythm     : true !default;
 ///     margin-bottom: vr-block(.25);
 ///   }
 
-@function vr-block($units: 1, $px-offset: false) {
-  @if ($px-offset) {
-    @return ( (($line-height-ratio * _strip-units($max-font)) / (_strip-units($max-font) / 2)) * ($units / 2) * (1 + ($px-offset / _strip-units($max-font))) ) + em;
+@function vr-block($units: 1, $px_offset: false) {
+  @if ($px_offset) {
+    @return ( (($line_height_ratio * _strip-units($max_font)) / (_strip-units($max_font) / 2)) * ($units / 2) * (1 + ($px_offset / _strip-units($max_font))) ) + em;
   } @else {
-    @return ( (($line-height-ratio * _strip-units($max-font)) / (_strip-units($max-font) / 2)) * ($units / 2) ) + em;
+    @return ( (($line_height_ratio * _strip-units($max_font)) / (_strip-units($max_font) / 2)) * ($units / 2) ) + em;
   }
 }
 
@@ -209,18 +209,18 @@ $vertical-rhythm     : true !default;
 /// @access private
 
 @function math-ln($value) {
-  $ten-exp: 1;
-  $ln-ten: 2.30258509;
+  $ten_exp: 1;
+  $ln_ten: 2.30258509;
 
-  @while ($value > math-pow(10, $ten-exp)) {
-    $ten-exp: $ten-exp + 1;
+  @while ($value > math-pow(10, $ten_exp)) {
+    $ten_exp: $ten_exp + 1;
   }
 
-  $value: $value / math-pow(10, $ten-exp);
+  $value: $value / math-pow(10, $ten_exp);
 
   $result: math-summation(math-ln-maclaurin, $value, 1, 100);
 
-  @return $result + $ten-exp * $ln-ten;
+  @return $result + $ten_exp * $ln_ten;
 }
 
 // Typography Mixins
@@ -230,334 +230,337 @@ $vertical-rhythm     : true !default;
 //  font-weight: $body-font-weight;
 //  color: $body-color;
 //
-//  font-size: $min-font;
-//  line-height: #{$line-height-ratio}em;
+//  font-size: $min_font;
+//  line-height: #{$line_height_ratio}em;
 //
-//  @media (min-width: $min-width) {
-//    font-size: calc(#{$min-font} + (#{_strip-units($max-font)} - #{_strip-units($min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+//  @media (min-width: $min_width) {
+//    font-size: calc(#{$min_font} + (#{_strip-units($max_font)} - #{_strip-units($min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
 //  }
 //
-//  @media (min-width: $max-width) {
-//    font-size: $max-font;
+//  @media (min-width: $max_width) {
+//    font-size: $max_font;
 //  }
 //}
 
-@mixin t-box() {
+@mixin t_box {
   //font-family: $body-font;
   //font-weight: $body-font-weight;
   //color: $body-color;
 
-  font-size: $min-font;
-  line-height: #{$line-height-ratio}em;
+  font-size: $min_font;
+  line-height: #{$line_height_ratio}em;
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$min-font} + (#{_strip-units($max-font)} - #{_strip-units($min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$min_font} + (#{_strip-units($max_font)} - #{_strip-units($min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $max-font;
+  @media (min-width: $max_width) {
+    font-size: $max_font;
   }
 }
 
 
 //@mixin t-p() {
-//  @include t-html;
+//  @include t_html;
 //}
 
-@mixin t-reset() {
+@mixin t_reset {
   margin: 0;
   padding: 0;
 }
 
-@mixin t-block() {
-  margin: 0 0 #{$line-height-ratio}em 0;
+@mixin t_block {
+  margin: 0 0 #{$line_height_ratio}em 0;
 }
 
-@mixin t-heading() {
-  font-family: $heading-font;
-  font-weight: $heading-font-weight;
-  //color: $heading-color;
+@mixin t_heading {
+  font-family: $heading_font;
+  font-weight: $heading_font_weight;
+  //color: $heading_color;
   //clear: both;
 }
 
-@mixin t-h1() {
-  $local-min-font: $min-font * (math-pow($heading-ratio, 1.75));
-  $local-max-font: $max-font * (math-pow($heading-ratio, 1.75));
+@mixin t_h1 {
+  $local_min_font: $min_font * (math-pow($heading_ratio, 1.75));
+  $local_max_font: $max_font * (math-pow($heading_ratio, 1.75));
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * $min-font) / ($local-min-font / .25)) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * $min_font) / ($local_min_font / .25)) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
+    margin-bottom: .25em;
     line-height: 1.1em;
-    margin-bottom: .25em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $max-font) / ($local-max-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $max-font) / ($local-max-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * $max-font) / ($local-max-font / .25)) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $max_font) / ($local_max_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * $max_font) / ($local_max_font / .25)) + em;
+      line-height: (($line_height_ratio * $max_font) / ($local_max_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-h2() {
-  $local-min-font: $min-font * (math-pow($heading-ratio, 1.4));
-  $local-max-font: $max-font * (math-pow($heading-ratio, 1.4));
+@mixin t_h2 {
+  $local_min_font: $min_font * (math-pow($heading_ratio, 1.4));
+  $local_max_font: $max_font * (math-pow($heading_ratio, 1.4));
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * _strip-units($min-font)) / (_strip-units($local-min-font) / .25) * (1 + (3 / _strip-units($local-min-font)))) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * _strip-units($min_font)) / (_strip-units($local_min_font) / .25) * (1 + (3 / _strip-units($local_min_font)))) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
+    margin-bottom: .25em;
     line-height: 1.2em;
-    margin-bottom: .25em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $max-font) / ($local-max-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $max-font) / ($local-max-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * _strip-units($max-font)) / (_strip-units($local-max-font) / .25) * (1 + (3 / _strip-units($local-max-font)))) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $max_font) / ($local_max_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * _strip-units($max_font)) / (_strip-units($local_max_font) / .25) * (1 + (3 / _strip-units($local_max_font)))) + em;
+      line-height: (($line_height_ratio * $max_font) / ($local_max_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-h3() {
-  $local-min-font: $min-font * (math-pow($heading-ratio, 1.05));
-  $local-max-font: $max-font * (math-pow($heading-ratio, 1.05));
+@mixin t_h3 {
+  $local_min_font: $min_font * (math-pow($heading_ratio, 1.05));
+  $local_max_font: $max_font * (math-pow($heading_ratio, 1.05));
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * _strip-units($min-font)) / (_strip-units($local-min-font) / .25) * (1 + (3 / _strip-units($local-min-font)))) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * _strip-units($min_font)) / (_strip-units($local_min_font) / .25) * (1 + (3 / _strip-units($local_min_font)))) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
+    margin-bottom: .25em;
     line-height: 1.3em;
-    margin-bottom: .25em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $max-font) / ($local-max-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $max-font) / ($local-max-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * _strip-units($max-font)) / (_strip-units($local-max-font) / .25) * (1 + (3 / _strip-units($local-max-font)))) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $max_font) / ($local_max_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * _strip-units($max_font)) / (_strip-units($local_max_font) / .25) * (1 + (3 / _strip-units($local_max_font)))) + em;
+      line-height: (($line_height_ratio * $max_font) / ($local_max_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-h4() {
-  $local-min-font: $min-font * (math-pow($heading-ratio, .7));
-  $local-max-font: $max-font * (math-pow($heading-ratio, .7));
+@mixin t_h4 {
+  $local_min_font: $min_font * (math-pow($heading_ratio, .7));
+  $local_max_font: $max_font * (math-pow($heading_ratio, .7));
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * _strip-units($min-font)) / (_strip-units($local-min-font) / .25) * (1 + (3 / _strip-units($local-min-font)))) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * _strip-units($min_font)) / (_strip-units($local_min_font) / .25) * (1 + (3 / _strip-units($local_min_font)))) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
+    margin-bottom: .25em;
     line-height: 1.4em;
-    margin-bottom: .25em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $max-font) / ($local-max-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $max-font) / ($local-max-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * _strip-units($max-font)) / (_strip-units($local-max-font) / .25) * (1 + (3 / _strip-units($local-max-font)))) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $max_font) / ($local_max_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * _strip-units($max_font)) / (_strip-units($local_max_font) / .25) * (1 + (3 / _strip-units($local_max_font)))) + em;
+      line-height: (($line_height_ratio * $max_font) / ($local_max_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-h5() {
-  $local-min-font: $min-font * (math-pow($heading-ratio, .35));
-  $local-max-font: $max-font * (math-pow($heading-ratio, .35));
+@mixin t_h5 {
+  $local_min_font: $min_font * (math-pow($heading_ratio, .35));
+  $local_max_font: $max_font * (math-pow($heading_ratio, .35));
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * $min-font) / ($local-min-font / .25)) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * $min_font) / ($local_min_font / .25)) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
+    margin-bottom: .25em;
     line-height: 1.5em;
-    margin-bottom: .25em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $max-font) / ($local-max-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $max-font) / ($local-max-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * $max-font) / ($local-max-font / .25)) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $max_font) / ($local_max_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * $max_font) / ($local_max_font / .25)) + em;
+      line-height: (($line_height_ratio * $max_font) / ($local_max_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-h6() {
-  $local-min-font: $min-font;
-  $local-max-font: $max-font;
+@mixin t_h6 {
+  $local_min_font: $min_font;
+  $local_max_font: $max_font;
 
-  font-size: $local-min-font;
-  @if ($vertical-rhythm) {
-    margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-    line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-    margin-bottom: (($line-height-ratio * _strip-units($min-font)) / (_strip-units($local-min-font) / .25) * (1 + (2 / _strip-units($local-min-font)))) + em;
+  font-size: $local_min_font;
+  @if ($vertical_rhythm) {
+    margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+    margin-bottom: (($line_height_ratio * _strip-units($min_font)) / (_strip-units($local_min_font) / .25) * (1 + (2 / _strip-units($local_min_font)))) + em;
+    line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
   } @else {
     margin-top: 0;
-    line-height: 1.6em;
     margin-bottom: .25em;
+    line-height: 1.6em;
   }
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
-    @if ($vertical-rhythm) {
-      margin-top: (($line-height-ratio * $min-font) / ($local-min-font / 1.25)) + em;
-      line-height: (($line-height-ratio * $min-font) / ($local-min-font / 1.5)) + em;
-      margin-bottom: (($line-height-ratio * _strip-units($min-font)) / (_strip-units($local-min-font) / .25) * (1 + (1 / _strip-units($local-min-font)))) + em;
+  @media (min-width: $max_width) {
+    font-size: $local_max_font;
+    @if ($vertical_rhythm) {
+      margin-top: (($line_height_ratio * $min_font) / ($local_min_font / 1.25)) + em;
+      margin-bottom: (($line_height_ratio * _strip-units($min_font)) / (_strip-units($local_min_font) / .25) * (1 + (1 / _strip-units($local_min_font)))) + em;
+      line-height: (($line_height_ratio * $min_font) / ($local_min_font / 1.5)) + em;
     }
   }
 }
 
-@mixin t-blockquote() {
+@mixin t_blockquote {
   font-style: italic;
+
   cite {
     display: block;
     font-style: normal;
   }
 }
 
-@mixin t-pre() {
-  padding: ($line-height-ratio * .5) + em;
+@mixin t_pre {
   margin-bottom: vr-block(1);
+  padding: ($line_height_ratio * .5) + em;
+
   code {
     padding: 0;
   }
 }
 
-@mixin t-code() {
+@mixin t_code {
+  padding: ($line_height_ratio * .05) + em ($line_height_ratio * .15) + em;
   font-family: $courier;
-  padding: ($line-height-ratio * .05) + em ($line-height-ratio * .15) + em;
   line-height: 0;
 }
 
-@mixin t-abbr() {
-  border-bottom: 1px dotted currentColor;
+@mixin t_abbr {
   cursor: help;
+  border-bottom: 1px dotted currentColor;
 }
 
-@mixin t-dt() {
-  color: $heading-color;
+@mixin t_dt {
+  color: $heading_color;
   font-weight: bold;
 }
 
-@mixin t-fieldset() {
+@mixin t_fieldset {
+  max-width: 100%;
+  margin-bottom: vr-block(1, 1);
   padding: vr-block(.5) vr-block() vr-block();
   border-width: 1px;
   border-style: solid;
-  max-width: 100%;
-  margin-bottom: vr-block(1, 1);
-  @media (min-width: $max-width) {
+
+  @media (min-width: $max_width) {
     margin-bottom: vr-block(1.25, -1);
   }
-  button, input[type="submit"] {
+
+  button,
+  input[type="submit"] {
     margin-bottom: 0;
   }
 }
 
-@mixin t-legend() {
-  color: $heading-color;
+@mixin t_legend {
+  color: $heading_color;
   font-weight: bold;
 }
 
-@mixin t-input() {
-  $local-min-font: $min-font;
-  $local-max-font: $max-font;
+@mixin t_input {
+  $local_min_font: $min_font;
+  $local_max_font: $max_font;
 
   display: block;
   max-width: 100%;
-  padding: vr-block(.25);
-
-  font-size: $local-min-font;
   margin-bottom: vr-block(.5, 7);
+  padding: vr-block(.25);
+  font-size: $local_min_font;
 
-  @media (min-width: $min-width) {
-    font-size: calc(#{$local-min-font} + (#{_strip-units($local-max-font)} - #{_strip-units($local-min-font)}) * ((100vw - #{$min-width}) / (#{_strip-units($max-width)} - #{_strip-units($min-width)})));
+  @media (min-width: $min_width) {
+    font-size: calc(#{$local_min_font} + (#{_strip-units($local_max_font)} - #{_strip-units($local_min_font)}) * ((100vw - #{$min_width}) / (#{_strip-units($max_width)} - #{_strip-units($min_width)})));
   }
 
-  @media (min-width: $max-width) {
-    font-size: $local-max-font;
+  @media (min-width: $max_width) {
     margin-bottom: vr-block(.25, 3.5);
+    font-size: $local_max_font;
   }
 }
 
-@mixin t-label() {
+@mixin t_label {
   display: block;
-  padding-bottom: vr-block(.125);
   margin-bottom: vr-block(-.25, -10);
+  padding-bottom: vr-block(.125);
 }
 
-@mixin t-table() {
+@mixin t_table {
   width: 100%;
+  margin-bottom: vr-block(1, 5);
   border-spacing: 0;
   border-collapse: collapse;
-  margin-bottom: vr-block(1, 5);
-  @media (min-width: $max-width) {
+  @media (min-width: $max_width) {
     margin-bottom: vr-block(1, 3);
   }
 }
 
-@mixin t-th() {
-  text-align: left;
-  color: $heading-color;
-
+@mixin t_th {
   padding: vr-block(.125) vr-block(.5);
+  text-align: left;
+  color: $heading_color;
 
-  @media (min-width: $max-width) {
+  @media (min-width: $max_width) {
     padding: vr-block(.25) vr-block(.5);
   }
 }
 
-@mixin t-td() {
-  padding: ($line-height-ratio * .5) + em;
+@mixin t_td {
+  //padding: ($line_height_ratio * .5) + em;
   padding: vr-block(.125) vr-block(.5);
 
-  @media (min-width: $max-width) {
+  @media (min-width: $max_width) {
     padding: vr-block(.25) vr-block(.5);
   }
 }
@@ -567,9 +570,9 @@ $vertical-rhythm     : true !default;
 /// @example
 ///   @include typographic;
 
-@mixin typographic() {
+@mixin typographic {
 
-  @include t-box;
+  @include t_box;
 
   // h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   // a, abbr, acronym, address, big, cite, code,
@@ -580,62 +583,75 @@ $vertical-rhythm     : true !default;
   // fieldset, form, label, legend,
   // table, caption, tbody, tfoot, thead, tr, th, td
   // {
-  //  @include t-reset;
+  //  @include t_reset;
   // }
 
-  p, blockquote, pre,
+  p,
+  blockquote,
+  pre,
   address,
-  dl, ol, ul,
+  dl,
+  ol,
+  ul,
   table {
-    @include t-block;
+    @include t_block;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @include t-heading;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include t_heading;
   }
 
   h1 {
-    @include t-h1;
+    @include t_h1;
   }
 
   h2 {
-    @include t-h2;
+    @include t_h2;
   }
 
   h3 {
-    @include t-h3;
+    @include t_h3;
   }
 
   h4 {
-    @include t-h4;
+    @include t_h4;
   }
 
   h5 {
-    @include t-h5;
+    @include t_h5;
   }
 
   h6 {
-    @include t-h6;
+    @include t_h6;
   }
 
   blockquote {
-    @include t-blockquote;
+    @include t_blockquote;
   }
 
   pre {
-    @include t-pre;
+    @include t_pre;
   }
 
   code {
-    @include t-code;
+    @include t_code;
   }
 
-  big, small, sub, sup {
+  big,
+  small,
+  sub,
+  sup {
     line-height: 0;
   }
 
-  abbr, acronym {
-    @include t-abbr;
+  abbr,
+  acronym {
+    @include t_abbr;
   }
 
   address {
@@ -643,19 +659,19 @@ $vertical-rhythm     : true !default;
   }
 
   table {
-    @include t-table;
+    @include t_table;
   }
 
   th {
-    @include t-th;
+    @include t_th;
   }
 
   td {
-    @include t-td;
+    @include t_td;
   }
 
   dt {
-    @include t-dt;
+    @include t_dt;
   }
 
   ul {
@@ -667,22 +683,21 @@ $vertical-rhythm     : true !default;
   }
 }
 
-@mixin fontScale($fontMin: 14px, $fontMax: 16px, $widthMin: 576px, $widthMax: 1400px) {
-  font-size: em($fontMin);
-  @media (min-width: $widthMin) {
-    font-size: calc(#{$fontMin} + (#{_strip-units($fontMax)} - #{_strip-units($fontMin)}) * ((100vw - #{$widthMin}) / (#{_strip-units($widthMax)} - #{_strip-units($widthMin)})));
+@mixin font_scale($font_min: 14px, $font_max: 16px, $width_min: 576px, $width_max: 1400px) {
+  font-size: em($font_min);
+  @media (min-width: $width_min) {
+    font-size: calc(#{$font_min} + (#{_strip-units($font_max)} - #{_strip-units($font_min)}) * ((100vw - #{$width_min}) / (#{_strip-units($width_max)} - #{_strip-units($width_min)})));
   }
-  @media (min-width: $widthMax) {
-    font-size: em($fontMax);
+  @media (min-width: $width_max) {
+    font-size: em($font_max);
   }
 }
-
 
 %helperwidth {
   &::before {
     display: inline-block;
-    white-space: nowrap;
     content: 'hello word';
-    outline: 1px solid red;
+    white-space: nowrap;
+    outline: 1px solid $color_error;
   }
 }
