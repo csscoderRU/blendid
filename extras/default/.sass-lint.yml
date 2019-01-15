@@ -1,5 +1,6 @@
 # name of file .sass-lint.yml (in root of project)
 # sort props https://github.com/csscomb/csscomb.js/blob/dev/config/yandex.json
+# https://github.com/sasstools/sass-lint/tree/master/docs/rules
 
 options:
   formatter: stylish
@@ -34,7 +35,7 @@ rules:
   no-disallowed-properties: 0
   no-duplicate-properties: 1
   no-empty-rulesets: 1
-  no-extends: 0
+  no-extends: 1
   no-ids: 1
   no-important: 1
   no-invalid-hex: 1
@@ -64,12 +65,15 @@ rules:
   function-name-format:
   - 1
   id-name-format: 0
-  mixin-name-format: 1
+  mixin-name-format:
+    - 1
+    - allow-leading-underscore: true
+      convention: snakecase
   placeholder-name-format: 1
   variable-name-format:
   - 1
   - allow-leading-underscore: true
-    convention: camelcase
+    convention: snakecase
 
   # Style Guide
   attribute-quotes: 1

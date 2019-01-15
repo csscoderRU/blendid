@@ -10,6 +10,7 @@ https://csscoder.pro/
 */
 
 @import "common/variable";
+@import "common/mixins/mixin";
 
 /* Base */
 /***********************************************/
@@ -34,7 +35,6 @@ https://csscoder.pro/
 }
 
 
-@import "common/mixins/mixin";
 @import "common/silent-grid/silent-grid";
 
 ///* include modules */

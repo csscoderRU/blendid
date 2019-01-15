@@ -1,8 +1,8 @@
 @lost flexbox flex;
 
 html {
-  font-size: 10px;
   box-sizing: border-box;
+  font-size: 10px;
   -ms-overflow-style: scrollbar;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -36,19 +36,19 @@ svg:not(:root) {
 // svg sprite icons
 .ico-svg {
   display: inline-block;
-  line-height: 100%;
   vertical-align: top;
+  line-height: 100%;
 
   use {
-    @extend %tr-all;
+    @include tr_all;
   }
 }
 
 // hide
 .hide {
-  @extend %hide;
+  @include hide;
 }
 
 .hidden {
-  @extend %hidden;
+  @include hidden;
 }
