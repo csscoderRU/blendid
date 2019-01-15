@@ -53,7 +53,7 @@ var sassTask = function () {
     .pipe(gulpif(!global.production, sourcemaps.init()))
     .pipe(sass(TASK_CONFIG.stylesheets.sass))
     .on('error', handleErrors)
-    .pipe(gulpif(global.production, postcssGulp(postCSSConf)))
+    .pipe(postcssGulp(postCSSConf))
     .pipe(gulpif(global.production && !TASK_CONFIG.stylesheets.minify, beautify(cssBeautifyOptions) ))
     .pipe(gulpif(!global.production, sourcemaps.write()))
     .pipe(gulp.dest(paths.dest))
