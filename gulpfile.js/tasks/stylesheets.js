@@ -41,7 +41,7 @@ var sassTask = function () {
 
   // check minify enabled
   if(TASK_CONFIG.stylesheets.minify) {
-    postCSSCompressConf = postCSSCompressConf.concat(cssnano({preset: 'default'}));
+    postCSSConf = postCSSConf.concat(cssnano({preset: 'default'}));
   }
 
   var cssBeautifyOptions = {
