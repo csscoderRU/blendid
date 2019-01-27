@@ -1,7 +1,7 @@
 ///* Button */
 ///***********************************************/
 //
-//<a class="ui-btn ui-btn--size-normal ui-btn--theme-primary ui-btn--skin-normal" href="#3" tabindex="0"><span class="ui-btn__box" tabindex="-1">Button</span></a>
+//<a class="ui-btn ui-btn--size-normal ui-btn--theme-primary" href="#3" tabindex="0"><span class="ui-btn__box" tabindex="-1">Button</span></a>
 
 /* buttons */
 /***********************************************/
@@ -34,7 +34,7 @@
   }
 
   &__box {
-    @include trAll;
+    @include tr_all;
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -47,19 +47,12 @@
       outline: none;
     }
 
-    // SKIN MOD
-    #{$self}--skin-normal & {
-      min-width: em(140);
-      height: em(50, 10);
-      padding: em(1 20, 10);
-      letter-spacing: em(.33, 10);
-      text-transform: uppercase;
-      border-radius: 0;
-    }
-
     // SIZE MOD
     #{$self}--size-normal & {
-      font-size: em(10);
+      font-size: em(16);
+    }
+    #{$self}--size-big & {
+      font-size: em(22);
     }
 
     // STATE LOADING + DISABLED
@@ -88,18 +81,22 @@
 
     // THEME MOD 1
     #{$self}--theme-primary & {
+      min-width: em(140);
+      height: em(50, 16);
+      padding: em(1 20, 16);
+      letter-spacing: em(.33, 16);
+      text-transform: uppercase;
       color: $color_white;
-      border-color: $color_black;
-      background-color: $color_black;
+      border-radius: em(5px, 16);
+      background-color: $color_main;
 
       &:hover {
-        background-color: lighten($color_black, 40%);
+        background-color: lighten($color_main, 20%);
       }
 
       &:active {
-        background-color: lighten($color_black, 20%);
+        background-color: lighten($color_main, 10%);
       }
-
     }
 
     #{$self}--theme-primary#{$self}:focus & {
@@ -108,12 +105,12 @@
 
     // THEME MOD 1 + STATES
     #{$self}--theme-primary#{$self}--state-loading & {
-      background-color: lighten($color_black, 40%);
+      background-color: lighten($color_main, 20%);
     }
 
     #{$self}--theme-primary#{$self}--state-disabled & {
       opacity: .2;
-      background-color: $color_black;
+      background-color: $color_main;
     }
 
     #{$self}--theme-primary#{$self}--state-disabled:focus &,
@@ -127,3 +124,24 @@
     width: 100%;
   }
 }
+
+
+
+// Elements UI
+//
+// Styleguide 2
+
+/* Buttons */
+/***********************************************/
+// Button
+//
+// Your standard button suitable for clicking.
+//
+// Markup: <a class="{{modifier_class}}" href="#3" tabindex="0"><span class="ui-btn__box" tabindex="-1">Button</span></a>
+//
+// .ui-btn.ui-btn--size-normal.ui-btn--theme-primary  - Theme primary
+// .ui-btn.ui-btn--size-normal.ui-btn--theme-primary.ui-btn--state-loading  - state loading
+// .ui-btn.ui-btn--size-normal.ui-btn--theme-primary.ui-btn--state-disabled  - state disabled
+// .ui-btn.ui-btn--size-big.ui-btn--theme-primary  - Size big
+//
+// Styleguide 2.1

@@ -1,6 +1,10 @@
 // Grid silent bootstrap
 ///***********************************************/
 
+
+
+
+
 $grid_columns: 12;
 $grid_gutter_width: 30px;
 
@@ -41,9 +45,63 @@ $vertical_rhythm: true;
 ///* colors */
 ///***********************************************/
 $color_white: #fff;
-$color_main: #02d0c6;
+$color_main: #d08005;
 $color_black: #141414;
 $color_dark: #4e4444;
 $color_gray: #8b8b8b;
 $color_light_gray: #b2b2b2;
 $color_error: #e24147;
+
+
+// Variables
+//
+// Styleguide 1
+
+// Colors
+//
+// Markup: <div class="styleguide-varable-color {{modifier_class}}">${{modifier_class}}</div>
+//
+// .color_white - $color_white
+// .color_main - $color_main
+// .color_black - $color_black
+// .color_dark - $color_dark
+// .color_gray - $color_gray
+// .color_light_gray - $color_light_gray
+// .color_error - $color_error
+//
+// Styleguide 1.1
+
+.styleguide-varable-color {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  border: 4px solid #ccc;
+  border-radius: 7px;
+  text-shadow: 1px 1px 3px #000;
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  line-height: 92px;
+
+  &.color_white {
+    background-color: $color_white;
+  }
+  &.color_main {
+    background-color: $color_main;
+  }
+  &.color_black {
+    background-color: $color_black;
+  }
+  &.color_dark {
+    background-color: $color_dark;
+  }
+  &.color_gray {
+    background-color: $color_gray;
+  }
+  &.color_light_gray {
+    background-color: $color_light_gray;
+  }
+  &.color_error {
+    background-color: $color_error;
+  }
+}

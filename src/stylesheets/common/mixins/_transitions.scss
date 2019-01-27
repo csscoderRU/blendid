@@ -8,7 +8,7 @@ $transitionFunction: ease-in-out;
   transition: all $transitionTime $transitionFunction;
 }
 
-@mixin trAll {
+@mixin tr_all {
   transition: all $transitionTime $transitionFunction;
 }
 
