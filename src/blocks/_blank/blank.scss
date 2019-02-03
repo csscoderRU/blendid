@@ -1,15 +1,13 @@
-/* Blank */
+/* blank */
 /***********************************************/
-.text {
-  line-height: 10px;
-}
+.blank {
+  $self: &;
 
-.rest {
-
-
-  @include res(lg) {
-    font-size: 20px;
+  &__box1 {
+    @include container;
   }
 
-  font-size: 10px;
+  &__box2 {
+    @include container-fluid;
+  }
 }

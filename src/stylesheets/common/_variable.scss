@@ -1,13 +1,6 @@
 // Grid silent bootstrap
 ///***********************************************/
 
-
-
-
-
-$grid_columns: 12;
-$grid_gutter_width: 30px;
-
 // media steps
 $media_steps: (
   default: 'default',
@@ -16,7 +9,7 @@ $media_steps: (
   lg: 992px,
   xl: 1200px,
   xxl: 1400px
-) !default;
+);
 
 // container max width
 $container_max_widths: (
@@ -25,7 +18,7 @@ $container_max_widths: (
   lg: 960px,
   xl: 1080px,
   xxl: 1190px
-) !default;
+);
 
 // fonts
 $font_body: 'Roboto', Helvetica, Arial, sans-serif;
