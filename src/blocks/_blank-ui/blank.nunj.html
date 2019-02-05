@@ -1,0 +1,62 @@
+<!-- form example block -->
+
+<form action="#3" class="form">
+  <fieldset class="form__fieldset">
+    <legend class="hide">Base example form</legend>
+
+    <div class="form__row">
+      <div class="form__field">
+        <label for="#3" class="form__field-label">Label field</label>
+        <input type="text" class="ui-input ui-input--size-normal ui-input--theme-default" placeholder="Test">
+        <div class="form__field-messages">
+          <div class="form__field-messages-item">Some message</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="form__field">
+        <label for="#3" class="form__field-label">Select </label>
+
+        <div class="ui-select ui-select--size-normal ui-select--theme-default">
+          <select name="#3" id="#3" class="ui-select__item" required>
+            <option value="" hidden>Industry</option>
+            <option value="1">Design</option>
+            <option value="1">Industry 2</option>
+            <option value="1">Industry 3</option>
+          </select>
+          <div class="ui-select__tie">
+            <svg class="ico-svg ico-svg__select-ico">
+              <use xlink:href="images/icons.svg#select-ico"></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="form__field-messages">
+          <div class="form__field-messages-item">Some message</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__row">
+      <div class="form__field">
+        <label for="#3" class="form__field-label">Textarea </label>
+
+        <textarea name="area" id="area" cols="30" rows="10" class="ui-textarea ui-textarea--size-normal ui-textarea--theme-default" placeholder="Some text"></textarea>
+
+        <div class="form__field-messages">
+          <div class="form__field-messages-item">Some message</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form__row">
+      <a class="ui-btn ui-btn--size-normal ui-btn--theme-primary" href="#3" tabindex="0"><span class="ui-btn__box" tabindex="-1">Button</span></a>
+    </div>
+
+  </fieldset>
+</form>
+
+
+<!-- /End form example block -->
